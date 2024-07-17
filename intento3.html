@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronicas de Aventuras</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+        body {
+            background-color: #f5f5dc;
+            font-family: "MedievalSharp", cursive;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .main-container {
+            width: 700px;
+            height: 800px;
+            border: 3px solid #8b4513;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #d4af37;
+            border-bottom: 3px solid #8b4513;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        header img {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #8b4513;
+            border-radius: 10px;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #d4af37;
+            border-right: 3px solid #2c190c;
+            padding: 20px;
+            box-shadow: 5px 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+            background-image: url(https://i.redd.it/42pjh4f9iwgx.jpg);
+        }
+        .sidebar h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin: 10px 0;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #000;
+            font-size: 18px;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 720px;
+        }
+        .content h2 {
+            font-size: 28px;
+            color: #8b4513;
+        }
+        .content p {
+            font-size: 18px;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .decorated-space {
+            background-image: url('ornament.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 50px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <header>
+        <h1>Titulo del Libro</h1>
+        <img src="emblema.jpg" alt="Emblema de la Familia">
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2 style="color: white">Capítulos</h2>
+            <ul>
+                <li><a href="#capitulo1" onclick="showChapter('capitulo1')" style="color: white;">La Reunión de los Buitres</a></li>
+                <li><a href="#capitulo2" onclick="showChapter('capitulo2')" style="color: white">-</a></li>
+                <li><a href="#capitulo3" onclick="showChapter('capitulo3')" style="color: white;">-</a></li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <div class="decorated-space"></div>
+            <div id="capitulo1">
+                <h2>La Reunión de los Buitres</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                </p>
+            </div>
+            <div id="capitulo2" style="display:none;">
+                <h2>Capitulo 2</h2>
+                <p>Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+            </div>
+            <div id="capitulo3" style="display:none;">
+                <h2>Capitulo 3</h2>
+                <p>Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
+            </div>
+        </main>
+    </div>
+</div>
+
+<script>
+    function showChapter(chapterId) {
+        const chapters = document.querySelectorAll('.content > div');
+        chapters.forEach(chapter => chapter.style.display = 'none');
+        document.getElementById(chapterId).style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
